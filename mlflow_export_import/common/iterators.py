@@ -82,3 +82,6 @@ class SearchRunsIterator(BaseIterator):
         self.kwargs["experiment_ids"] = experiment_ids
         if view_type:
             self.kwargs["run_view_type"] = view_type
+
+    def _call_iter(self):
+        return self.search_method(filter_string=self.filter, **self.kwargs)
